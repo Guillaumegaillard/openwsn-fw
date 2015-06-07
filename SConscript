@@ -43,7 +43,9 @@ if env['noadaptivesync']==1:
     env.Append(CPPDEFINES    = 'NOADAPTIVESYNC')
 if env['cryptoengine']:
     env.Append(CPPDEFINES    = {'CRYPTO_ENGINE_SCONS' : env['cryptoengine']})
-
+if env['sensorlab']==1:
+    env.Append(CPPDEFINES    = 'SENSORLAB')
+    
 if   env['toolchain']=='mspgcc':
     
     if env['board'] not in ['telosb','wsn430v13b','wsn430v14','gina','z1']:

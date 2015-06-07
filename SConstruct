@@ -132,6 +132,7 @@ command_line_options = {
     'debug':            ['0','1'],
     'noadaptivesync':   ['0','1'],
     'cryptoengine':     ['', 'dummy_crypto_engine', 'firmware_crypto_engine', 'board_crypto_engine'],
+    'sensorlab':   		['0','1'],
 }
 
 def validate_option(key, value, env):
@@ -275,6 +276,13 @@ command_line_vars.AddVariables(
         '',                                                # default
         validate_apps,                                     # validator
         None,                                              # converter
+    ),
+    (
+        'sensorlab',       	                               # key
+        'Choice to use SensorLab Observation Tool',        # help
+        command_line_options['sensorlab'][0],              # default
+        validate_option,                                   # validator
+        int,                                               # converter
     ),
 )
 
